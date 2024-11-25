@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Payment</title>
+</head>
+<body>
+<h1>Processing Payment</h1>
+    <script>
+        // Simulate extracting the payment status (e.g., from query params or API)
+        const paymentStatus = "success"; // Replace with actual logic to get payment status
+
+        // Notify the parent window
+        if (window.opener) {
+            window.opener.postMessage(
+                { status: paymentStatus, message: "Payment completed!" },
+                "https://your-domain.com" // Replace with your app's origin
+            );
+        }
+
+        // Close the popup
+        window.close();
+    </script>
+</body>
+</html>
